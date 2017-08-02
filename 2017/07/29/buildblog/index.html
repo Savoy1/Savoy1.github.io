@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="一直想找个地方存放自己的总结，但是很多平台要么界面布局我不喜欢，要么没有我需要的功能，于是萌生了自己搭个博客的想法。自己搭的博客想怎么弄怎么弄，美滋滋！ #一、为什么选择hexo+github hexo是一款静态博客框架，相比于WordPress，它不需要数据库，搭建起来比较容易，静态网页也更容易被搜索引擎检索出来，并且它的操作比同是静态博客引擎的jekyll也简单的多。 #二、如何搭建 ##搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用hexo+GitHub搭建博客">
+<meta property="og:url" content="http://yoursite.com/2017/07/29/buildblog/index.html">
+<meta property="og:site_name" content="Savoy&#39;s Blog">
+<meta property="og:description" content="一直想找个地方存放自己的总结，但是很多平台要么界面布局我不喜欢，要么没有我需要的功能，于是萌生了自己搭个博客的想法。自己搭的博客想怎么弄怎么弄，美滋滋！ #一、为什么选择hexo+github hexo是一款静态博客框架，相比于WordPress，它不需要数据库，搭建起来比较容易，静态网页也更容易被搜索引擎检索出来，并且它的操作比同是静态博客引擎的jekyll也简单的多。 #二、如何搭建 ##搭建">
+<meta property="og:updated_time" content="2017-08-01T12:23:24.517Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用hexo+GitHub搭建博客">
+<meta name="twitter:description" content="一直想找个地方存放自己的总结，但是很多平台要么界面布局我不喜欢，要么没有我需要的功能，于是萌生了自己搭个博客的想法。自己搭的博客想怎么弄怎么弄，美滋滋！ #一、为什么选择hexo+github hexo是一款静态博客框架，相比于WordPress，它不需要数据库，搭建起来比较容易，静态网页也更容易被搜索引擎检索出来，并且它的操作比同是静态博客引擎的jekyll也简单的多。 #二、如何搭建 ##搭建">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/29/buildblog/"/>
+
+
+
+
+
+  <title>使用hexo+GitHub搭建博客 | Savoy's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Savoy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/buildblog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Savoy truffle">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Savoy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用hexo+GitHub搭建博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-29T16:13:10+08:00">
+                2017-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>一直想找个地方存放自己的总结，但是很多平台要么界面布局我不喜欢，要么没有我需要的功能，于是萌生了自己搭个博客的想法。自己搭的博客想怎么弄怎么弄，美滋滋！</p>
+<p>#一、为什么选择hexo+github</p>
+<p>hexo是一款静态博客框架，相比于WordPress，它不需要数据库，搭建起来比较容易，静态网页也更容易被搜索引擎检索出来，并且它的操作比同是静态博客引擎的jekyll也简单的多。</p>
+<p>#二、如何搭建</p>
+<p>##搭建本地博客</p>
+<p>###1.安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a><br>在官网下载安装包，安装的时候一直next就好，有需要可以更改安装路径。<br>安装完后，打开命令提示符（cmd），输入：</p>
+<pre><code>node -v
+npm -v
+</code></pre><p>出现版本号就表示安装成功。    </p>
+<p>###2.安装<a href="https://git-scm.com/" target="_blank" rel="external">Git</a><br>和安装Node.js一样，去官网下好安装包，一路默认NEXT，安装完成后，单击鼠标右键会出现三个Git按钮。</p>
+<p>###3.安装Hexo<br>在任意位置单击鼠标右键，选择<code>Git bash</code>,输入</p>
+<pre><code>npm install -g hexo   
+</code></pre><p>###4.创建本地博客</p>
+<p>####4.1创建放置博客的文件夹<br>（1）在你喜欢的地方新建一个文件夹（文件夹名称全英文）</p>
+<p>（2）进入文件夹，单击鼠标右键，选择<code>Git bash</code>,输入：</p>
+<pre><code>hexo  init
+</code></pre><p>####4.2安装依赖包<br>继续输入：</p>
+<pre><code>npm install
+</code></pre><p>####4.3预览本地博客<br>等依赖包安装完成后，输入：</p>
+<pre><code>hexo g    #生成静态页面
+hexo s    #本地启动
+</code></pre><p>然后再浏览器输入<a href="http://localhost:4000，就可以预览本地博客啦！！" target="_blank" rel="external">http://localhost:4000，就可以预览本地博客啦！！</a></p>
+<p>##将博客部署到GitHub上</p>
+<p>###1.注册<a href="https://github.com/" target="_blank" rel="external">GitHub</a>账号<br>进入官网注册就好了，已有账号的可以跳过这一步</p>
+<p>###2.创建仓库<br>（1）在GitHub页面点击<code>New repository</code>新建仓库</p>
+<p>（2）仓库名（Repository name）命名规则：</p>
+<pre><code>yourname.github.io
+</code></pre><p>###3.配置SSH<br>还是在<code>git bash</code>里进行配置SSH的操作</p>
+<p>（1）设置GitHub的邮箱和用户名</p>
+<p>输入：</p>
+<pre><code>git config --global user.email &quot;youremail&quot;
+git config --global user.name &quot;yourname&quot;  
+</code></pre><p>注意：yourname和youremail都要和GitHub上的一致</p>
+<p>（2）生成密钥</p>
+<p>输入：</p>
+<pre><code>ssh-keygen -t rsa -C “your email” 
+</code></pre><p>可设置密码，但输入的密码不显示。不想设置密码的话，按三次回车就好，此时密码为空。命令成功后会得到<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个文件存放地址在<code>git bash</code>页面中会显示，一般存放在<code>c/user/administrator/ssh</code>文件夹里。</p>
+<p>（3）添加SSH密钥</p>
+<p>在GitHub页面点击<code>settings</code>，进入<code>SSH keys</code>，把<code>id_rsa.pub</code>中的内容复制进去就好了（这个文件可以用sublime或者文本打开）。</p>
+<p>###4.将博客部署到GitHub上<br>（1）编辑博客根目录下的配置文件<code>_config.yml</code></p>
+<pre><code>deploy:
+type: git
+repo: https://github.com/Savoy1/Savoy1.github.io  #建好的仓库地址.git
+branch: master
+</code></pre><p>更改完毕后保存文件</p>
+<p>（2）部署博客<br>还是在<code>Git bash</code>输入以下命令：</p>
+<pre><code>hexo g   #生成
+hexo d   #发布   
+</code></pre><p>出现下面的提示就表示部署成功啦！</p>
+<pre><code>INFO Deploy done: git
+</code></pre><p>部署完成后在浏览器输入你的仓库名来访问，比如我的是<code>Savoy1.github.io</code>。到这里，博客的搭建就大功告成啦！至于文章的发布、及主题的更换还有一些HEXO的常用命令放到下一篇文章写吧。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Savoy truffle" />
+          <p class="site-author-name" itemprop="name">Savoy truffle</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Savoy truffle</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

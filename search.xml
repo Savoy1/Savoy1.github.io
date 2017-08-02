@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[使用hexo+GitHub搭建博客]]></title>
+    <url>%2F2017%2F08%2F02%2Fbuildblog%2F</url>
+    <content type="text"><![CDATA[一直想找个地方存放自己的总结，但是很多平台要么界面布局我不喜欢，要么没有我需要的功能，于是萌生了自己搭个博客的想法。自己搭的博客想怎么弄怎么弄，美滋滋！ 为什么选择hexo+githubhexo是一款静态博客框架，相比于WordPress，它不需要数据库，搭建起来比较容易，静态网页也更容易被搜索引擎检索出来，并且它的操作比同是静态博客引擎的jekyll也简单的多。 如何搭建搭建本地博客安装Node.js在官网下载安装包，安装的时候一直next就好，有需要可以更改安装路径。安装完后，打开命令提示符（cmd），输入： node -v npm -v 出现版本号就表示安装成功。 安装Git和安装Node.js一样，去官网下好安装包，一路默认NEXT，安装完成后，单击鼠标右键会出现三个Git按钮。 3.安装Hexo在任意位置单击鼠标右键，选择Git bash,输入 npm install -g hexo 创建本地博客创建放置博客的文件夹（1）在你喜欢的地方新建一个文件夹（文件夹名称全英文） （2）进入文件夹，单击鼠标右键，选择Git bash,输入： hexo init 安装依赖包继续输入： npm install 预览本地博客等依赖包安装完成后，输入： hexo g #生成静态页面 hexo s #本地启动 然后再浏览器输入http://localhost:4000，就可以预览本地博客啦！！ 将博客部署到GitHub上注册GitHub账号进入官网注册就好了，已有账号的可以跳过这一步 创建仓库（1）在GitHub页面点击New repository新建仓库 （2）仓库名（Repository name）命名规则： yourname.github.io 配置SSH还是在git bash里进行配置SSH的操作 （1）设置GitHub的邮箱和用户名 输入： git config --global user.email &quot;youremail&quot; git config --global user.name &quot;yourname&quot; 注意：yourname和youremail都要和GitHub上的一致 （2）生成密钥 输入： ssh-keygen -t rsa -C “your email” 可设置密码，但输入的密码不显示。不想设置密码的话，按三次回车就好，此时密码为空。命令成功后会得到id_rsa和id_rsa.pub两个文件，这两个文件存放地址在git bash页面中会显示，一般存放在c/user/administrator/ssh文件夹里。 （3）添加SSH密钥 在GitHub页面点击settings，进入SSH keys，把id_rsa.pub中的内容复制进去就好了（这个文件可以用sublime或者文本打开）。 将博客部署到GitHub上（1）编辑博客根目录下的配置文件_config.yml deploy: type: git repo: https://github.com/Savoy1/Savoy1.github.io #建好的仓库地址.git branch: master 更改完毕后保存文件 （2）部署博客还是在Git bash输入以下命令： hexo g #生成 hexo d #发布 出现下面的提示就表示部署成功啦！ INFO Deploy done: git 部署完成后在浏览器输入你的仓库名来访问，比如我的是Savoy1.github.io。到这里，博客的搭建就大功告成啦！至于文章的发布、及主题的更换还有一些HEXO的常用命令放到下一篇文章写吧。]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+</search>
